@@ -8,6 +8,7 @@ Table of contents:
 * [minikube](#minikube)
 * [Basic commands](#basic-commands)
 * [Pods](#pods)
+* [ReplicaSet](#replicaset)
 
 ## Getting Started
 
@@ -63,4 +64,16 @@ kubectl create -f pod-definition.yaml
 kubectl get pods
 kubectl describe pod myapp-pod
 kubectl delete pod myapp-pod
+```
+
+## ReplicaSet
+```
+kubectl create -f replicaset.yaml
+kubectl get replicaset
+kubectl get rs
+kubectl describe replicaset
+kubectl describe replicaset replicaset-name
+kubectl delete replicaset replicaset-name
+kubectl edit replicaset replicaset-name
+kubectl scale replicaset replicaset-name --replicas=5
 ```
