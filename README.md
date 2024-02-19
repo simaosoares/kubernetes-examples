@@ -7,6 +7,7 @@ Table of contents:
 * [Getting Started](#getting-started)
 * [minikube](#minikube)
 * [Basic commands](#basic-commands)
+* [Pods](#pods)
 
 ## Getting Started
 
@@ -52,4 +53,14 @@ minikube start --driver=virtualbox
 ```
 kubectl get nodes
 kubectl describe nodes
+```
+
+## Pods
+
+```
+kubectl run nginx --image=nginx
+kubectl create -f pod-definition.yaml
+kubectl get pods
+kubectl describe pod myapp-pod
+kubectl delete pod myapp-pod
 ```
