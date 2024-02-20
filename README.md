@@ -9,6 +9,7 @@ Table of contents:
 * [Basic commands](#basic-commands)
 * [Pods](#pods)
 * [ReplicaSet](#replicaset)
+* [Deployments](#deployments)
 
 ## Getting Started
 
@@ -76,4 +77,15 @@ kubectl describe replicaset replicaset-name
 kubectl delete replicaset replicaset-name
 kubectl edit replicaset replicaset-name
 kubectl scale replicaset replicaset-name --replicas=5
+```
+
+## Deployments
+
+```
+kubectl get deployments
+kubectl get deploy
+kubectl describe deployment myapp-deployment
+kubectl get all
+kubectl create deployment httpd-frontend --image=httpd:2.4-alpine --replicas=3
+kubectl create -f deployment-1.yaml
 ```
