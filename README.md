@@ -10,6 +10,7 @@ Table of contents:
 * [Pods](#pods)
 * [ReplicaSet](#replicaset)
 * [Deployments](#deployments)
+  * [Update and Rollback](#update-and-rollback)
 
 ## Getting Started
 
@@ -88,4 +89,42 @@ kubectl describe deployment myapp-deployment
 kubectl get all
 kubectl create deployment httpd-frontend --image=httpd:2.4-alpine --replicas=3
 kubectl create -f deployment-1.yaml
+kubectl delete deployment myapp-deployment
+```
+
+### Update and Rollback
+
+> `RollingUpdate` default strategy type, other option: `Recreate`
+
+**Create**
+```
+kubectl create -f deployment-definition.yaml
+kubectl create -f deployment-definition.yaml --record
+```
+
+`--record` records the command used to create the deployment. Can be shown using the `kubectl rollout history` command
+
+**Get**
+```
+kubectl get deployments
+```
+
+**Update**
+```
+kubectl apply -f deployment-definition.yaml
+kubectl set image deployment frontend nginx=nginx:1.9.1 --record
+kubectl edit deployment frontend --record
+```
+
+`kubectl set image deployment <DEPLOYMENT_NAME> <CONTAINER_NAME>=<IMAGE> --record`
+
+**Status**
+```
+kubectl rollout status deployment/frontend
+kubectl rollout history deployment/frontend
+```
+
+**Rollback**
+```
+kubectl rollout undo deployment/frontend
 ```
