@@ -11,6 +11,7 @@ Table of contents:
 * [ReplicaSet](#replicaset)
 * [Deployments](#deployments)
   * [Update and Rollback](#update-and-rollback)
+* [Services](#services)
 
 ## Getting Started
 
@@ -127,4 +128,19 @@ kubectl rollout history deployment/frontend
 **Rollback**
 ```
 kubectl rollout undo deployment/frontend
+```
+
+## Services
+
+> `ClusterIp` is the type of the default kubernetes service
+
+> `nodePort` is not mandatory to be defined 
+
+```
+kubectl create -f service-definition.yaml
+kubectl get services
+kubectl get svc
+kubectl get pods,svc
+kubectl describe service myapp-service 
+minikube service myapp-service --url
 ```
