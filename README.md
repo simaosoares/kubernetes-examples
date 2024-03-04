@@ -6,6 +6,7 @@ Table of contents:
 
 * [Getting Started](#getting-started)
 * [minikube](#minikube)
+* [Basic commands](#basic-commands)
 
 ## Getting Started
 
@@ -45,3 +46,10 @@ minikube start --driver=virtualbox
 * Minikube Tutorial: https://kubernetes.io/docs/tutorials/hello-minikube/
 * More about it here: https://kubernetes.io/docs/setup/learning-environment/minikube/#specifying-the-vm-driver
 * Install Minikube: https://minikube.sigs.k8s.io/docs/start/
+
+## Basic commands
+
+```
+kubectl get nodes
+kubectl describe nodes
+```
