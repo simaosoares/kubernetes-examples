@@ -13,6 +13,7 @@ Table of contents:
   * [Update and Rollback](#update-and-rollback)
 * [Services](#services)
 * [Setup Multi Node cluster using Kubeadm](#setup-multi-node-cluster-using-kubeadm)
+* [References](#references)
 
 ## Getting Started
 
@@ -192,3 +193,8 @@ ps -p 1
 
 * Link to kubeadm installation instructions: https://kubernetes.io/docs/setup/independent/install-kubeadm/
 * Link to download VM images: http://osboxes.org/
+
+## References
+
+* https://github.com/kodekloudhub/example-voting-app-kubernetes
+* https://github.com/mmumshad/kubernetes-training-answers
