@@ -12,6 +12,7 @@ Table of contents:
 * [Deployments](#deployments)
   * [Update and Rollback](#update-and-rollback)
 * [Services](#services)
+* [Setup Multi Node cluster using Kubeadm](#setup-multi-node-cluster-using-kubeadm)
 
 ## Getting Started
 
@@ -144,3 +145,50 @@ kubectl get pods,svc
 kubectl describe service myapp-service 
 minikube service myapp-service --url
 ```
+
+## Setup Multi Node cluster using Kubeadm
+
+This solution is used for setting up a multi-node Kubernetes cluster in a local environment.
+
+### Setup Lab - VirtualBox
+
+Vagrant can be used to quickly get 3 nodes (docker images) up and running: kubemaster, kubenode01 and kubenode02  
+
+* Oracle VirtualBox: https://www.virtualbox.org/
+* Vagrant: https://www.vagrantup.com/
+* The link to Vagrant file: https://github.com/kodekloudhub/certified-kubernetes-administrator-course
+* If you are new to VirtualBox or Vagrant, please follow this pre-requisites course to learn about it: https://www.youtube.com/watch?v=Wvf0mBNGjXY
+
+### Provision cluster using Kubeadm
+
+We need to install a container runtime into each node in the cluster so that Pods can run there.
+
+**Container Runtimes**
+
+* https://kubernetes.io/docs/setup/production-environment/container-runtimes/
+* https://github.com/containerd/containerd/blob/main/docs/getting-started.md
+* https://docs.docker.com/engine/install/ubuntu/
+
+> While installing docker engine, only `containerd` is required
+
+Do this
+```
+sudo apt install containerd
+```
+instead of
+```
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+```
+
+Check status
+```
+systemctl status containerd
+```
+
+Identify cgroup driver
+```
+ps -p 1
+```
+
+* Link to kubeadm installation instructions: https://kubernetes.io/docs/setup/independent/install-kubeadm/
+* Link to download VM images: http://osboxes.org/
